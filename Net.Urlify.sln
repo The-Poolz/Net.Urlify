@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34525.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{CFB45553-7DE0-4618-A741-0324956A6F1C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{0800C0E9-BBB4-41A2-9B45-9744860D75E6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Net.Urlify", "src\Net.Urlify\Net.Urlify.csproj", "{7D252DB7-2E64-4B63-B087-2BC2E256994F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7D252DB7-2E64-4B63-B087-2BC2E256994F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D252DB7-2E64-4B63-B087-2BC2E256994F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D252DB7-2E64-4B63-B087-2BC2E256994F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D252DB7-2E64-4B63-B087-2BC2E256994F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7D252DB7-2E64-4B63-B087-2BC2E256994F} = {CFB45553-7DE0-4618-A741-0324956A6F1C}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FB1B5F20-037A-4949-A4F5-F32085890E41}
+	EndGlobalSection
+EndGlobal
