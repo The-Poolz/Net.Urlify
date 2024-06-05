@@ -25,7 +25,7 @@ namespace Net.Urlify.Models
         /// Constructs a complete URL by appending necessary query parameters to the base URL.
         /// </summary>
         /// <returns>A <see cref="Url"/> object that represents the complete URL with query parameters included.</returns>
-        public Url GetUrl()
+        public Url BuildUrl()
         {
             var parameters = this.ToQueryStringParameters();
             return parameters
