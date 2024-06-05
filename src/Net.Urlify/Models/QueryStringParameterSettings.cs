@@ -1,11 +1,11 @@
 ﻿namespace Net.Urlify.Models
 {
-    public class QueryStringParameter
+    public class QueryStringParameterSettings
     {
         public string Value { get; }
         public bool IsEncoded { get; }
 
-        public QueryStringParameter(string value, bool isEncoded)
+        public QueryStringParameterSettings(string value, bool isEncoded)
         {
             Value = value;
             IsEncoded = isEncoded;
