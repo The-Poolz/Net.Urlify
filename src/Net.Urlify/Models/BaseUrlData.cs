@@ -27,7 +27,7 @@ namespace Net.Urlify.Models
         /// <returns>A <see cref="Url"/> object that represents the complete URL with query parameters included.</returns>
         public Url GetUrl()
         {
-            var parameters = this.ToDictionary();
+            var parameters = this.ToQueryStringParameters();
             return parameters
                 .Aggregate(new Url(baseUrl), (currentUrl, param) =>
                     currentUrl.SetQueryParam(param.Key, param.Value.Value, param.Value.IsEncoded));

@@ -1,40 +1,33 @@
-﻿using Net.Urlify.Types;
-using System.Reflection;
+﻿using System;
+using System.Linq;
+using Net.Urlify.Models;
 using Net.Urlify.Attributes;
 using System.Collections.Generic;
+using System.Reflection;
 
 namespace Net.Urlify.Extensions
 {
     public static class ObjectExtensions
     {
-        public static Dictionary<string, (string Value, bool IsEncoded)> ToDictionary(this object obj)
+        public static Dictionary<string, QueryStringParameter> ToQueryStringParameters(this object obj)
         {
-            var properties = obj.GetType().GetProperties();
-            var dictionary = new Dictionary<string, (string Value, bool IsEncoded)>();
+            var properties = obj.GetType().GetProperties()
+                .Where(prop => Attribute.IsDefined(prop, typeof(UrlQueryStringParameterAttribute)));
 
+            var dictionary = new Dictionary<string, QueryStringParameter>();
             foreach (var property in properties)
             {
+                var attribute = property.GetCustomAttribute<UrlQueryStringParameterAttribute>();
                 var value = property.GetValue(obj);
-                if (value == null) continue;
+                if (value == null || attribute == null) continue;
 
-                var isEncoded = property.GetCustomAttribute<IncludeIsEncodedAttribute>()?.IsEncoded ?? true;
-                var casingAttribute = property.GetCustomAttribute<PropertyNameCasingAttribute>();
-                var key = ApplyCasing(property.Name, casingAttribute?.Casing ?? PropertyNameCasing.None);
+                var name = string.IsNullOrWhiteSpace(attribute.Name) ? property.Name : attribute.Name;
+                var isEncoded = attribute.IsEncoded;
 
-                dictionary.Add(key, (value.ToString(), isEncoded)!);
+                dictionary.Add(name, new QueryStringParameter(value.ToString(), isEncoded));
             }
 
             return dictionary;
-        }
-
-        private static string ApplyCasing(string input, PropertyNameCasing casing)
-        {
-            return casing switch
-            {
-                PropertyNameCasing.FirstLetterUpperCase => char.ToLower(input[0]) + input.Substring(1),
-                PropertyNameCasing.AllUpperCase => input.ToLower(),
-                _ => input
-            };
         }
     }
 }
