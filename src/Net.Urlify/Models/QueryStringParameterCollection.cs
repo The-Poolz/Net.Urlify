@@ -6,13 +6,13 @@ using System.Runtime.Serialization;
 namespace Net.Urlify.Models
 {
     [Serializable]
-    public class QueryStringParameterCollection : Dictionary<string, QueryStringParameterSettings>
+    internal class QueryStringParameterCollection : Dictionary<string, QueryStringParameterSettings>
     {
-        public QueryStringParameterCollection(object sourceObject)
+        internal QueryStringParameterCollection(Urlify sourceObject)
             : base(sourceObject.ToQueryStringParameters())
         { }
 
-        public QueryStringParameterCollection(IDictionary<string, QueryStringParameterSettings> queryStringParams)
+        internal QueryStringParameterCollection(IDictionary<string, QueryStringParameterSettings> queryStringParams)
             : base(queryStringParams)
         { }
 

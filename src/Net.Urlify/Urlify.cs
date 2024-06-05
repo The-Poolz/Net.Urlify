@@ -2,21 +2,21 @@
 using System.Linq;
 using Net.Urlify.Extensions;
 
-namespace Net.Urlify.Models
+namespace Net.Urlify
 {
     /// <summary>
     /// Represents the base class for URL data models. This class provides functionality to construct URLs with common parameters,
     /// leveraging environment-specific base URLs.
     /// </summary>
-    public abstract class BaseUrlData
+    public abstract class Urlify
     {
         private readonly string baseUrl;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BaseUrlData"/> class with the specified base URL.
+        /// Initializes a new instance of the <see cref="Urlify"/> class with the specified base URL.
         /// </summary>
         /// <param name="baseUrl">The base URL to use for constructing URLs.</param>
-        protected BaseUrlData(string baseUrl)
+        protected Urlify(string baseUrl)
         {
             this.baseUrl = baseUrl;
         }

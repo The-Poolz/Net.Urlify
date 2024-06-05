@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Linq;
+using System.Reflection;
 using Net.Urlify.Models;
 using Net.Urlify.Attributes;
 using System.Collections.Generic;
-using System.Reflection;
 
 namespace Net.Urlify.Extensions
 {
-    public static class ObjectExtensions
+    internal static class UrlifyExtensions
     {
-        public static QueryStringParameterCollection ToQueryStringParameters(this object sourceObject)
+        internal static QueryStringParameterCollection ToQueryStringParameters(this Urlify sourceObject)
         {
             var properties = sourceObject.GetType().GetProperties()
                 .Where(prop => Attribute.IsDefined(prop, typeof(QueryStringPropertyAttribute)));
