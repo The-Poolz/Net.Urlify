@@ -8,7 +8,7 @@ namespace Net.Urlify.Attributes
         public string? Name { get; }
         public bool IsEncoded { get; }
 
-        public UrlQueryStringParameterAttribute(string name = "", bool isEncoded = false)
+        public UrlQueryStringParameterAttribute(string name = "", bool isEncoded = true)
         {
             Name = name;
             IsEncoded = isEncoded;
