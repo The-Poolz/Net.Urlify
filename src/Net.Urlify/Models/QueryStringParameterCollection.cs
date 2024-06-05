@@ -8,8 +8,8 @@ namespace Net.Urlify.Models
     [Serializable]
     public class QueryStringParameterCollection : Dictionary<string, QueryStringParameterSettings>
     {
-        public QueryStringParameterCollection(object obj)
-            : base(obj.ToQueryStringParameters())
+        public QueryStringParameterCollection(object sourceObject)
+            : base(sourceObject.ToQueryStringParameters())
         { }
 
         public QueryStringParameterCollection(IDictionary<string, QueryStringParameterSettings> queryStringParams)
