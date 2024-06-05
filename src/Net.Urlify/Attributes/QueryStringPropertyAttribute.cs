@@ -3,12 +3,14 @@
 namespace Net.Urlify.Attributes
 {
     [AttributeUsage(AttributeTargets.Property)]
-    public class IncludeIsEncodedAttribute : Attribute
+    public class QueryStringPropertyAttribute : Attribute
     {
+        public string? Name { get; }
         public bool IsEncoded { get; }
 
-        public IncludeIsEncodedAttribute(bool isEncoded = true)
+        public QueryStringPropertyAttribute(string name = "", bool isEncoded = true)
         {
+            Name = name;
             IsEncoded = isEncoded;
         }
     }
