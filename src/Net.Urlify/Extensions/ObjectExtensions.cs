@@ -9,16 +9,16 @@ namespace Net.Urlify.Extensions
 {
     public static class ObjectExtensions
     {
-        public static QueryStringParameterCollection ToQueryStringParameters(this object obj)
+        public static QueryStringParameterCollection ToQueryStringParameters(this object sourceObject)
         {
-            var properties = obj.GetType().GetProperties()
+            var properties = sourceObject.GetType().GetProperties()
                 .Where(prop => Attribute.IsDefined(prop, typeof(QueryStringPropertyAttribute)));
 
             var queryStringParams = new Dictionary<string, QueryStringParameterSettings>();
             foreach (var property in properties)
             {
                 var attribute = property.GetCustomAttribute<QueryStringPropertyAttribute>();
-                var value = property.GetValue(obj);
+                var value = property.GetValue(sourceObject);
                 if (value == null || attribute == null) continue;
 
                 var name = string.IsNullOrWhiteSpace(attribute.Name) ? property.Name : attribute.Name;
