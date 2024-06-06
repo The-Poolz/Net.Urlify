@@ -18,7 +18,7 @@ namespace Net.Urlify.Attributes
         /// <value>
         /// The name used for the query string parameter in the URL. If left empty, the property name will be used.
         /// </value>
-        public string? Name { get; }
+        public string Name { get; }
 
         /// <summary>
         /// Gets a value indicating whether the query parameter value has already been URL-encoded.
