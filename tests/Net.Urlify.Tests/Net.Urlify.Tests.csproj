@@ -24,4 +24,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Net.Urlify\Net.Urlify.csproj" />
+  </ItemGroup>
+
 </Project>

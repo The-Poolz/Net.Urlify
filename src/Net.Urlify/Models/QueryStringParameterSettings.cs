@@ -2,8 +2,8 @@
 {
     internal class QueryStringParameterSettings
     {
-        internal string Value { get; }
-        internal bool IsEncoded { get; }
+        public string Value { get; }
+        public bool IsEncoded { get; }
 
         internal QueryStringParameterSettings(string value, bool isEncoded)
         {

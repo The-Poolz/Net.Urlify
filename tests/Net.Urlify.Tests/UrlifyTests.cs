@@ -1,5 +1,5 @@
-using FluentAssertions;
 using Xunit;
+using FluentAssertions;
 
 namespace Net.Urlify.Tests
 {
