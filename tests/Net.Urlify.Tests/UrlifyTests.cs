@@ -1,16 +1,31 @@
 using Xunit;
 using FluentAssertions;
+using Net.Urlify.Tests.Models;
 
-namespace Net.Urlify.Tests
+namespace Net.Urlify.Tests;
+
+public class UrlifyTests
 {
-    public class UrlifyTests
+    public class BuildUrl
     {
         [Fact]
-        public void Test()
+        internal void BuildUrl_ShouldConstructUrlCorrectly_WithQueryParameters()
         {
-            const string message = "hello world!";
+            var model = new TestUrlifyModel();
 
-            message.Should().Be(message);
+            var url = model.BuildUrl();
+
+            url.ToString().Should().Be("http://example.com?param1=value1%2Fwith%20spaces&Param2=value2%2Fwith%20spaces");
+        }
+
+        [Fact]
+        internal void BuildUrl_ShouldHandleNoQueryParameters()
+        {
+            var model = new EmptyTestUrlifyModel();
+
+            var url = model.BuildUrl();
+
+            url.ToString().Should().Be("http://example.com");
         }
     }
 }

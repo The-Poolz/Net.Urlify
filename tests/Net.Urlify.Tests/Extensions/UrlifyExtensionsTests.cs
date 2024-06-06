@@ -17,10 +17,10 @@ public class UrlifyExtensionsTests
 
             var result = model.ToQueryStringParameters();
 
-            result.Should().ContainKey("property1")
-                .And.Subject["property1"].Should().BeEquivalentTo(new QueryStringParameterSettings("value1", true));
-            result.Should().ContainKey("Property2")
-                .And.Subject["Property2"].Should().BeEquivalentTo(new QueryStringParameterSettings("123", false));
+            result.Should().ContainKey("param1")
+                .And.Subject["param1"].Should().BeEquivalentTo(new QueryStringParameterSettings("value1/with spaces", false));
+            result.Should().ContainKey("Param2")
+                .And.Subject["Param2"].Should().BeEquivalentTo(new QueryStringParameterSettings("value2/with spaces", false));
         }
 
         [Fact]

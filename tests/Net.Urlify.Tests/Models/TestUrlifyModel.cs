@@ -4,11 +4,11 @@ namespace Net.Urlify.Tests.Models;
 
 internal class TestUrlifyModel : Urlify
 {
-    [QueryStringProperty("property1")]
-    public string Property1 { get; set; } = "value1";
+    [QueryStringProperty("param1", false)]
+    public string Param1 { get; set; } = "value1/with spaces";
 
     [QueryStringProperty(isEncoded: false)]
-    public int Property2 { get; set; } = 123;
+    public string Param2 { get; set; } = "value2/with spaces";
 
     public TestUrlifyModel() : base("http://example.com") { }
 }
