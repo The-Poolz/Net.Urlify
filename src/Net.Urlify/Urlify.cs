@@ -1,6 +1,10 @@
 ﻿using Flurl;
+using System;
 using System.Linq;
+using System.Reflection;
 using Net.Urlify.Extensions;
+using Net.Urlify.Attributes;
+using System.Collections.Generic;
 
 namespace Net.Urlify
 {
@@ -11,6 +15,7 @@ namespace Net.Urlify
     public abstract class Urlify
     {
         private readonly string baseUrl;
+        internal IEnumerable<PropertyInfo> Properties { get; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Urlify"/> class with the specified base URL.
@@ -19,6 +24,8 @@ namespace Net.Urlify
         protected Urlify(string baseUrl)
         {
             this.baseUrl = baseUrl;
+            Properties = GetType().GetProperties()
+                .Where(prop => Attribute.IsDefined(prop, typeof(QueryStringPropertyAttribute)));
         }
 
         /// <summary>
