@@ -6,7 +6,7 @@ namespace Net.Urlify.Attributes
     /// Specifies the attribute to mark properties that should be included as query string parameters in a URL.
     /// </summary>
     /// <remarks>
-    /// Use this attribute to define how a property of a data model should be represented as a query string in the URL.
+    /// Use this attribute to define how a property of a data model should be represented as a query string in the URL.<br/>
     /// For example, you can specify a custom name for the query parameter and whether it should be URL-encoded.
     /// </remarks>
     [AttributeUsage(AttributeTargets.Property)]
