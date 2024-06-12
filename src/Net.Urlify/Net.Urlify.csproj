@@ -6,7 +6,7 @@
     <PackageId>Net.Urlify</PackageId>
     <Title>Lightweight library for effortless URL construction from .NET objects. Simplifies object-to-query string conversion, ensuring flexibility and ease of use.</Title>
     <Description>Lightweight library for effortless URL construction from .NET objects. Simplifies object-to-query string conversion, ensuring flexibility and ease of use.</Description>
-    <Version>1.0.0</Version>
+    <Version>1.0.1</Version>
     <Authors>darkarki, Lomet, ArdenHide</Authors>
     <Company>The-Poolz</Company>
     <Product>Net.Urlify</Product>
@@ -14,7 +14,7 @@
     <RepositoryUrl>https://github.com/The-Poolz/Net.Urlify</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>Urlify URL Flurl </PackageTags>
-    <PackageReleaseNotes>https://github.com/The-Poolz/Net.Urlify/releases/tag/v1.0.0</PackageReleaseNotes>
+    <PackageReleaseNotes>https://github.com/The-Poolz/Net.Urlify/releases/tag/v1.0.1</PackageReleaseNotes>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <IncludeSymbols>True</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
