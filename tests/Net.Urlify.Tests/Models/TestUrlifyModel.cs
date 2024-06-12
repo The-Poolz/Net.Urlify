@@ -2,13 +2,13 @@
 
 namespace Net.Urlify.Tests.Models;
 
-internal class TestUrlifyModel : Urlify
+public class TestUrlifyModel : Urlify
 {
-    [QueryStringProperty("param1", false)]
-    public string Param1 { get; set; } = "value1/with spaces";
-
-    [QueryStringProperty(isEncoded: false)]
+    [QueryStringProperty("param2", false, 2)]
     public string Param2 { get; set; } = "value2/with spaces";
+
+    [QueryStringProperty(isEncoded: false, order: 3)]
+    public string Param3 { get; set; } = "value3/with spaces";
 
     public TestUrlifyModel() : base("http://example.com") { }
 }

@@ -16,9 +16,10 @@ namespace Net.Urlify.Extensions
                     Value = property.GetValue(sourceObject)
                 })
                 .Where(x => x.Value != null && x.Attribute != null)
+                .OrderBy(x => x.Attribute.Order)
                 .ToDictionary(
                     x => string.IsNullOrWhiteSpace(x.Attribute.Name) ? x.Property.Name : x.Attribute.Name,
-                    x => new QueryStringParameterSettings(x.Value.ToString(), x.Attribute.IsEncoded)
+                    x => new QueryStringParameterSettings(x.Value.ToString(), x.Attribute.IsEncoded, x.Attribute.Order)
                 ));
         }
     }

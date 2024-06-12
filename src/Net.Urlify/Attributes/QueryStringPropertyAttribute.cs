@@ -7,7 +7,7 @@ namespace Net.Urlify.Attributes
     /// </summary>
     /// <remarks>
     /// Use this attribute to define how a property of a data model should be represented as a query string in the URL.<br/>
-    /// For example, you can specify a custom name for the query parameter and whether it should be URL-encoded.
+    /// For example, you can specify a custom name for the query parameter, whether it should be URL-encoded, and the order in which parameters should appear.
     /// </remarks>
     [AttributeUsage(AttributeTargets.Property)]
     public class QueryStringPropertyAttribute : Attribute
@@ -29,14 +29,24 @@ namespace Net.Urlify.Attributes
         public bool IsEncoded { get; }
 
         /// <summary>
+        /// Gets the order in which the query parameter should appear in the URL.
+        /// </summary>
+        /// <value>
+        /// The integer representing the order of the parameter. Parameters are sorted in ascending order. Default is 0, which does not enforce any specific positioning unless other parameters specify an order.
+        /// </value>
+        public int Order { get; }
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="QueryStringPropertyAttribute"/> class.
         /// </summary>
         /// <param name="name">The name of the query string parameter. Defaults to an empty string.</param>
-        /// <param name="isEncoded">Indicates whether the query parameter value has already been URL-encoded. Defaults to <see langword="true"/>.</param>
-        public QueryStringPropertyAttribute(string name = "", bool isEncoded = true)
+        /// <param name="isEncoded">Indicates whether the query parameter value has already been URL-encoded. Defaults to <see langword="false"/>.</param>
+        /// <param name="order">The order in which the query parameter appears in the URL. Defaults to 0.</param>
+        public QueryStringPropertyAttribute(string name = "", bool isEncoded = false, int order = 0)
         {
             Name = name;
             IsEncoded = isEncoded;
+            Order = order;
         }
     }
 }

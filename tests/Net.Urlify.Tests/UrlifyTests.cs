@@ -11,11 +11,11 @@ public class UrlifyTests
         [Fact]
         internal void BuildUrl_ShouldConstructUrlCorrectly_WithQueryParameters()
         {
-            var model = new TestUrlifyModel();
+            var model = new SubsidiaryTestUrlifyModel();
 
             var url = model.BuildUrl();
 
-            url.ToString().Should().Be("http://example.com?param1=value1%2Fwith%20spaces&Param2=value2%2Fwith%20spaces");
+            url.ToString().Should().Be("http://example.com?Param1=value1%2Fwith%20spaces&param2=value2%2Fwith%20spaces&Param3=value3%2Fwith%20spaces");
         }
 
         [Fact]
