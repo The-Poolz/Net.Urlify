@@ -13,14 +13,16 @@ public class UrlifyExtensionsTests
 		[Fact]
 		internal void ShouldConvertPropertiesCorrectly()
         {
-            var model = new TestUrlifyModel();
+            var model = new SubsidiaryTestUrlifyModel();
 
             var result = model.ToQueryStringParameters();
 
-            result.Should().ContainKey("param1")
-                .And.Subject["param1"].Should().BeEquivalentTo(new QueryStringParameterSettings("value1/with spaces", false));
-            result.Should().ContainKey("Param2")
-                .And.Subject["Param2"].Should().BeEquivalentTo(new QueryStringParameterSettings("value2/with spaces", false));
+            result.Should().ContainKey("Param1")
+                .And.Subject["Param1"].Should().BeEquivalentTo(new QueryStringParameterSettings("value1/with spaces", false, 1));
+            result.Should().ContainKey("param2")
+                .And.Subject["param2"].Should().BeEquivalentTo(new QueryStringParameterSettings("value2/with spaces", false, 2));
+            result.Should().ContainKey("Param3")
+                .And.Subject["Param3"].Should().BeEquivalentTo(new QueryStringParameterSettings("value3/with spaces", false, 3));
         }
 
         [Fact]

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Net.Urlify.Models;
+using System;
+using System.Runtime;
 
 namespace Net.Urlify.Attributes
 {
@@ -28,15 +30,18 @@ namespace Net.Urlify.Attributes
         /// </value>
         public bool IsEncoded { get; }
 
+        public int Order { get; }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="QueryStringPropertyAttribute"/> class.
         /// </summary>
         /// <param name="name">The name of the query string parameter. Defaults to an empty string.</param>
-        /// <param name="isEncoded">Indicates whether the query parameter value has already been URL-encoded. Defaults to <see langword="true"/>.</param>
-        public QueryStringPropertyAttribute(string name = "", bool isEncoded = true)
+        /// <param name="isEncoded">Indicates whether the query parameter value has already been URL-encoded. Defaults to <see langword="false"/>.</param>
+        public QueryStringPropertyAttribute(string name = "", bool isEncoded = false, int order = 0)
         {
             Name = name;
             IsEncoded = isEncoded;
+            Order = order;
         }
     }
 }
