@@ -12,8 +12,8 @@ namespace Net.Urlify.Attributes
     [AttributeUsage(AttributeTargets.Property)]
     public class PathPropertyAttribute : PropertyAttribute
     {
-        public PathPropertyAttribute(string name = "", bool isEncoded = false, int order = 0)
-            : base(name, isEncoded, order)
+        public PathPropertyAttribute(bool isEncoded = false, int order = 0)
+            : base(string.Empty, isEncoded, order)
         { }
     }
 }
