@@ -1,12 +1,12 @@
 ﻿namespace Net.Urlify.Models
 {
-    internal class QueryStringParameterSettings
+    internal class ParameterSettings
     {
         public string Value { get; }
         public bool IsEncoded { get; }
         public int Order { get; }
 
-        internal QueryStringParameterSettings(string value, bool isEncoded, int order)
+        internal ParameterSettings(string value, bool isEncoded, int order)
         {
             Value = value;
             IsEncoded = isEncoded;
