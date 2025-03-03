@@ -28,7 +28,7 @@ namespace Net.Urlify
         {
             this.baseUrl = baseUrl;
             Properties = GetType().GetProperties()
-                .Where(prop => Attribute.IsDefined(prop, typeof(QueryStringPropertyAttribute)));
+                .Where(prop => Attribute.IsDefined(prop, typeof(PropertyAttribute), inherit: true));
         }
 
         /// <summary>
@@ -43,10 +43,16 @@ namespace Net.Urlify
         /// </remarks>
         public Url BuildUrl()
         {
-            var parameters = this.ToQueryStringParameters();
-            return parameters
-                .Aggregate(new Url(baseUrl), (currentUrl, param) =>
-                    currentUrl.SetQueryParam(param.Key, param.Value.Value, param.Value.IsEncoded));
+            var pathParameters = this.ToPathParameters();
+            var queryStringParameters = this.ToQueryStringParameters();
+
+            var url = pathParameters.Aggregate(new Url(baseUrl), (currentUrl, param) =>
+                currentUrl.AppendPathSegment(param.Value.Value, param.Value.IsEncoded));
+
+            url = queryStringParameters.Aggregate(url, (currentUrl, param) =>
+                currentUrl.SetQueryParam(param.Key, param.Value.Value, param.Value.IsEncoded));
+
+            return url;
         }
     }
 }

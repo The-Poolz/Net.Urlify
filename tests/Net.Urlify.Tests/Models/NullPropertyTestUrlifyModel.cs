@@ -4,8 +4,11 @@ namespace Net.Urlify.Tests.Models;
 
 internal class NullPropertyTestUrlifyModel : Urlify
 {
-    [QueryStringProperty("property1")]
-    public string? Property1 { get; set; } = null;
+    [QueryStringProperty]
+    public string? QueryStringProperty { get; set; } = null;
+
+    [PathProperty]
+    public string? PathProperty { get; set; } = null;
 
     public NullPropertyTestUrlifyModel() : base("http://example.com") { }
 }

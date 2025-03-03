@@ -15,7 +15,7 @@ public class UrlifyTests
 
             var url = model.BuildUrl();
 
-            url.ToString().Should().Be("http://example.com?Param1=value1%2Fwith%20spaces&param2=value2%2Fwith%20spaces&Param3=value3%2Fwith%20spaces");
+            url.ToString().Should().Be("http://example.com/value1%20with%20spaces/value2%20with%20spaces?QueryStringProperty1=value1%2Fwith%20spaces&queryStringProperty2=value2%2Fwith%20spaces&QueryStringProperty3=value3%2Fwith%20spaces");
         }
 
         [Fact]
